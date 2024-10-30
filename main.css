@@ -1,603 +1,374 @@
-
 body {
+    background-color: #282c34;
+    color: #abb2bf;
+    font-family: 'Courier New', monospace;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+/* Page Block Styling */
+.page-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    scroll-snap-align: start;
+}
+
+/* Smooth scrolling between pages */
+html {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+
+.section {
+    width: 70%;
+}
+
+.code-container {
+    width: 70%;
+    background-color: #21252b;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+}
+
+.code-line {
+    margin: 5px 0;
+}
+
+.indent {
+    margin-left: 20px;
+}
+
+.indent2 {
+    margin-left: 40px;
+}
+
+.keyword {
+    color: #c678dd;
+}
+
+.class-name, .function-name {
+    color: #e5c07b;
+}
+
+.parameter {
+    color: #61afef;
+}
+
+.variable {
+    color: #98c379;
+}
+
+/* Секція з кодом (Python стиль) */
+.code-container {
+    background-color: #1e1e1e;
+    border: 1px solid #3c3f41;
+    color: #dcdcaa;
+}
+
+/* Стиль ключових слів у Python */
+.keyword {
+    color: #569cd6;
+}
+
+.class-name, .function-name {
+    color: #dcdcaa;
+}
+
+.variable {
+    color: #9cdcfe;
+}
+/* CMD window style */
+.cmd-window {
+    width: 70%;
+    background-color: black;
+    border: 2px solid #333;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+    color: #C0C0C0;
+}
+
+.cmd-header, .cmd-subheader {
+    color: #C0C0C0;
+}
+
+.cmd-header {
+    font-weight: bold;
+}
+
+.cmd-subheader {
+    margin-top: 10px;
+    font-size: 0.9rem;
+}
+
+.cmd-line {
+    margin-top: 20px;
+}
+
+.prompt {
+    color: #C0C0C0;
+}
+
+.command {
+    color: white;
+}
+
+#skills-output {
+    margin-top: 10px;
+    color: #C0C0C0;
+    white-space: pre-wrap;
+}
+
+/* Секція з командним рядком */
+.cmd-window {
+    background-color: #000000;
+    border: 2px solid #444;
+    color: #C0C0C0;
+}
+
+.prompt {
+    color: #00FF00;
+}
+
+.command {
+    color: white;
+}
+
+/* Секція освіти в стилі IDE */
+.education-ide {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    min-height: 100vh;
-    background-color: #021526;
-    color: white;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    overflow: hidden; /* Вимикаємо скролінг для всього тіла */
-    user-select: none;
+    gap: 20px;
+    width: 70%;
 }
 
-.left {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 50%;
-    height: 100vh; /* Блок ліворуч займає повну висоту екрана */
-    overflow: hidden; /* Вимикаємо скролінг лівого блоку */
-}
-
-
-.blok-foto{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 25px;
-    width: 80%;
-    height: 620px;
-    background-color: #1E262D;
-    border: 2px solid #968E7A;
-    border-radius: 60px;
-    padding: 20px;
-
-}
-
-.myfoto{
-    margin: 0;
-    width: 500px;
-    border-radius: 60px;
-    
-}
-
-.mytitle{
-    width: 500px;
-    margin: 0;
-    font-family: "Montserrat", sans-serif;
-    font-size: 1.5vw; /* Адаптивний розмір для різних екранів */
-    font-weight: bold;
-    text-align: right;
-}
-
-
-
-.right {
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100vh; /* Фіксована висота для правого блоку */
-    overflow-y: auto; /* Вмикаємо вертикальний скролінг */
-    width: 50%;
-    padding: 20px; /* Додаємо трохи відступів */
-}
-
-/* Для WebKit-браузерів (Chrome, Safari) */
-.right::-webkit-scrollbar {
-    width: 0; /* Приховуємо скролбар */
-}
-
-/* Для Firefox */
-.right {
-    scrollbar-width: none; /* Приховуємо скролбар */
-}
-
-/* Це необхідно для того, щоб скролінг все ще працював */
-.right {
-    -ms-overflow-style: none;  /* Для Internet Explorer та Edge */
-}
-
-
-/*Education*/
-.education {
-    margin-top: 25px;
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    width: 90%; /* Адаптивна ширина */
-    
-    background-color: #1E262D;
-    border: 2px solid #968E7A;
-    border-radius: 60px;
-    align-items: flex-start; /* Вирівнювання по лівому краю */
-    text-align: left; /* Текст також вирівняний по лівому краю */
-    color: white;
-    
-    overflow-wrap: break-word; /* Перенос слів, якщо вони занадто довгі */
-    word-wrap: break-word; /* Забезпечення переносу тексту */
-    word-break: break-word; /* Розбивка довгих слів */
-    box-sizing: border-box; /* Враховує padding у ширині */
-}
-
-.education h1 {
-    font-family: "Montserrat", sans-serif;
-    font-size: 70px;
-    font-weight: bold;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    text-align: left; /* Вирівнювання заголовку по лівому краю */
-    width: 100%; /* Гарантія, що заголовок не виходить за межі блоку */
-}
-
-.education h3{
-    font-family: "Montserrat", sans-serif;
-    font-size: 40px;
-    font-weight: bold;
-    margin-top: 10px;
-    margin-bottom: 5px;
-    text-align: left; /* Вирівнювання тексту по лівому краю */
-    width: 100%; /* Гарантія, що текст не виходить за межі блоку */
-    line-height: 1.5; /* Покращена читабельність */
-}
-
-.education h4 {
-    margin: 5px 0;
-    font-size: 20px;
-    color: #dcdcdc;
-    font-weight: normal;
-}
-
-
-
-/* LAnguage */
-
-/* Загальні стилі для шрифту Montserrat */
-body {
-    font-family: 'Montserrat', sans-serif;
-    color: white;
-}
-
-.language {
-    width: 90%;
-    align-items: center; /* Вирівнювання по вертикалі */
-    
-    padding: 20px;
-   
-}
-
-.langg{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.lang-left, .lang-right {
-    border-radius: 60px;
-    background-color: #1E262D;
-    width: 48%;
-    height: 200px;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    
-}
-
-.lang-top {
-    border-radius: 60px 60px 0 0;
-    height: 50%;
-    background-color: #1E262D;
-    border-bottom: 5px solid #968E7A;
-    display: flex;
-    justify-content: center; /* Центрування тексту по горизонталі */
-    align-items: center; /* Центрування тексту по вертикалі */
-}
-
-.lang-bot {
-    border-radius: 0 0 60px 60px;
-    height: 50%;
-    background-color: white;
-    display: flex;
-    justify-content: center; /* Центрування тексту по горизонталі */
-    align-items: center; /* Центрування тексту по вертикалі */
-}
-
-.lang-top h1, .lang-bot h1 {
-    margin: 0;
-    font-size: 56px; /* Розмір шрифту заголовків */
-}
-
-.lang-bot h1 {
-    color: #1E262D; /* Темний колір для тексту на білому фоні */
-}
-
-
-.skills {
-    position: relative;
-    width: 90%;
-    
-    min-height: 500px;
-    background-color: #1E262D;
-    border: 2px solid #968E7A;
-    border-radius: 60px;
+/* Вікно профілю */
+.profile-window {
+    width: 40%;
+    height: 400px;
+    background-color: #21252b; /* Темний фон для вікна */
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
     overflow: hidden;
-    margin:20;
-    padding: 20px;
+}
+
+/* Заголовок вікна */
+.window-header {
+    background-color: #4e5b62; /* Темніший заголовок */
+    color: #ffffff;
+    padding: 10px;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
 }
 
-.skills h1 {
-    font-size: 40px;
-    margin-bottom: 20px;
-    text-align: left;
-    color: #fff;
-    width: 100%;
-}
-
-.skill-box {
-    flex: 1 1 calc(30% - 20px); /* Ширина блоку, яка займає приблизно 30% від контейнера */
-    min-width: 120px; /* Мінімальна ширина блоку */
-    margin: 10px; /* Відступи між блоками */
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 40px;
-    padding: 10px;
-    text-align: center;
-    font-size: 16px;
-    color: #fff;
-    position: relative;
-    border: 2px solid transparent; /* Прозора межа */
-    box-shadow: 0 0 15px; /* Тінь буде додана індивідуально для кожного блоку */
-    animation: randomMovement 15s infinite alternate ease-in-out;
-}
-
-/* Унікальні кольори підсвічування для кожного блоку */
-.skill-box:nth-child(1) { box-shadow: 0 0 15px #ff2600; /* Tomate */ }
-.skill-box:nth-child(2) { box-shadow: 0 0 15px #00ff00; /* Lime Green */ }
-.skill-box:nth-child(3) { box-shadow: 0 0 15px #1E90FF; /* Dodger Blue */ }
-.skill-box:nth-child(4) { box-shadow: 0 0 15px #FFD700; /* Gold */ }
-.skill-box:nth-child(5) { box-shadow: 0 0 15px #ff0080; /* Hot Pink */ }
-.skill-box:nth-child(6) { box-shadow: 0 0 15px #8400ff; /* Blue Violet */ }
-.skill-box:nth-child(7) { box-shadow: 0 0 15px #FF8C00; /* Dark Orange */ }
-.skill-box:nth-child(8) { box-shadow: 0 0 15px #00CED1; /* Dark Turquoise */ }
-
-/* Анімація для випадкового руху блоків */
-@keyframes randomMovement {
-    0% { transform: translate(0, 0) rotate(0); }
-    25% { transform: translate(-5px, -5px) rotate(-2deg); }
-    50% { transform: translate(5px, -5px) rotate(2deg); }
-    75% { transform: translate(-5px, 5px) rotate(-2deg); }
-    100% { transform: translate(5px, 5px) rotate(2deg); }
-}
-
-
-
-
-.tech {
-    padding: 10px;
-    margin: 25px 0;
-    width: 90%;
-    
-    min-height: 250px;
-    background-color: #1E262D;
-    border: 2px solid #968E7A;
-    border-radius: 60px;
-    overflow: hidden; /* Сховати все, що виходить за межі контейнера */
-}
-
-.tech h1{
-    text-align: left;
-    margin-left: 15px;
-    margin-bottom: 15;
-}
-
-.row-tech {
-    display: flex;
-    animation: scroll 15s linear infinite; /* Постійна анімація */
-}
-
-.tech-box {
-    padding: 15px;
-    flex-shrink: 0; /* Не дозволяємо зменшити блоки */
-    width: 100px; /* Ширина боксу */
-    height: 100px; /* Висота боксу */
-    display: flex; /* Для центрування зображення */
-    justify-content: center; /* Центрування по горизонталі */
-    align-items: center; /* Центрування по вертикалі */
-    background-color: rgba(255, 255, 255, 0.1); /* Легке свічіння */
-    border-radius: 40px; /* Заокруглені кути */
-    margin-right: 10px; /* Відстань між боксами */
-    border: 2px solid #968E7A; /* Границя, як у головного блоку */
-}
-
-.tech-box img {
-    max-width: 100%; /* Зображення займає всю ширину боксу */
-    max-height: 100%; /* Зображення займає всю висоту боксу */
-    border-radius: 10px; /* Заокруглені кути для зображення */
-}
-
-@keyframes scroll {
-    0% {
-        transform: translateX(0); /* Початкова позиція */
-    }
-    100% {
-        transform: translateX(-50%); /* Прокрутка на ширину половини контейнера */
-    }
-}
-
-
-.contacts {
-    margin-top: 25px;
-    margin-bottom: 170px;
-    width: 90%;
-    
-    min-height: 340px;
-    background-color: #1E262D;
-    border: 2px solid #968E7A;
-    border-radius: 60px;
-    overflow: hidden; /* Сховати все, що виходить за межі контейнера */
-}
-
-.row-contacts {
-    display: flex;
-    flex-direction: column; /* Розташування контактів в колонці */
-    align-items: center; /* Центрування по горизонталі */
-    padding: 20px; /* Додаємо відступи всередині секції */
-}
-
-.contact-box {
-    display: flex; /* Для центрування зображення та тексту */
-    align-items: center; /* Центрування по вертикалі */
-    justify-content: center; /* Центрування по горизонталі */
-    width: 500px; /* Ширина боксу */
-    height: 50px; /* Висота боксу */
-    background-color: rgba(255, 255, 255, 0.1); /* Легке свічіння */
-    border-radius: 40px; /* Заокруглені кути */
-    border: 2px solid #968E7A; /* Границя, як у головного блоку */
-    text-align: center; /* Центрування тексту */
-    margin: 10px 0; /* Відстань між блоками */
-    transition: background-color 0.3s; /* Перехід для фону */
-}
-
-.contact-box a {
-    display: flex; /* Зробимо посилання гнучким контейнером */
-    align-items: center; /* Центрування по вертикалі */
-    justify-content: center; /* Центрування по горизонталі */
-    text-decoration: none; /* Сховати підкреслення */
-    color: white; /* Колір тексту */
-    width: 100%; /* Займати всю ширину боксів */
+/* Заголовок вікна */
+.window-title {
+    font-size: 1.2rem;
     font-weight: bold;
-    font-size: larger;
 }
 
-.contact-box:hover {
-    background-color: rgba(255, 255, 255, 0.2); /* Світліша фоновий колір при наведенні */
+/* Кнопки управління вікном */
+.window-controls {
+    display: flex;
 }
 
-.contact-box img {
-    width: 40px; /* Ширина іконки */
-    height: 40px; /* Висота іконки */
-    margin-right: 10px; /* Відстань між іконкою та текстом */
+.control-button {
+    width: 12px;
+    height: 12px;
+    background-color: #e06c75; /* Червона кнопка закриття */
+    border-radius: 50%;
+    margin-left: 5px;
+}
+
+/* Стиль контенту профілю */
+.profile-content {
+    padding: 15px;
+    text-align: center;
+}
+
+.profile-photo {
+    width: 250px;
+    height: 250px;
+    border-radius: 25%;
+    border: 2px solid #61afef; /* Синя рамка */
+    margin-bottom: 10px;
+}
+
+.profile-name {
+    font-size: 1.5rem;
+    color: #c678dd; /* Фіолетовий текст */
+}
+
+.profile-title {
+    font-size: 1rem;
+    color: #abb2bf; /* Світлий текст */
+    margin-bottom: 10px;
+}
+
+/* Контейнер для освіти */
+.education-container {
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Стиль карток освіти */
+.education-card {
+    height: 50%;
+    background-color: #2c313a; /* Темний фон карток */
+    padding: 15px;
+    border-radius: 6px;
+    border: 1px solid #61afef; /* Синя рамка */
+    color: #abb2bf; /* Світлий текст */
+}
+
+/* Стиль для полів освіти */
+.education-degree, .education-field, .education-university, .education-year {
+    font-size: 0.9rem;
+    margin: 5px 0;
 }
 
 
-@media (max-width: 1350px) {
-    .left, .right {
-        width: 100%;
-        height: auto;
-        
-    }
-
-    .mytitle {
-        font-size: 2vw; /* Збільшуємо розмір тексту */
-        width: 90%;
-    }
-
-    .blok-foto {
-        width: 80%;
-        height: auto; /* Автоматична висота для збереження пропорцій */
-    }
-
-    .myfoto {
-        width: 90%;
-    }
-    
+/* Контейнер для блоків освіти у рядок */
+.education-row {
+    display: flex;
+    gap: 20px;
 }
 
 
-@media (max-width: 1086px) {
-    body {
+
+
+/* Стиль заголовка скілів */
+.skills-header {
+    color: #c678dd;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+/* Сітка для карток */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Визначає сітку */
+    gap: 20px; /* Відстань між картками */
+    grid-auto-flow: row; /* Переносить елементи на новий рядок */
+}
+
+
+/* Картки з технічними скілами */
+.skill-card {
+    background-color: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 15px;
+    color: #d4d4d4;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+}
+
+/* Назва і опис скілів */
+.skill-name {
+    font-size: 1.2rem;
+    color: #ce9178;
+}
+
+.skill-description {
+    font-size: 0.9rem;
+    color: #4ec9b0;
+    margin-top: 5px;
+}
+
+
+/* Контейнер для контактів у стилі JSON */
+.contacts-json {
+    background-color: #21252b;
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    color: #abb2bf;
+    font-family: 'Courier New', monospace;
+    width: 70%;
+    margin-top: 20px;
+}
+
+/* Секція контактів у стилі JSON */
+.contacts-json {
+    background-color: #2d333b;
+    border: 1px solid #4b4e57;
+    color: #abb2bf;
+}
+
+.json-brace {
+    color: #569cd6;
+}
+
+.json-key {
+    color: #9cdcfe;
+}
+
+.json-link {
+    color: #dcdcaa;
+}
+
+/* Стилі для мобільних екранів */
+@media (max-width: 1262px) {
+
+    .profile-window{
+        width: 70%;
+    }
+    .education-ide {
+        align-items: center;
         flex-direction: column;
-        align-items: center;
-        overflow-y: auto;
+        
+    }
+    .education-container {
+        height: 300px;
+        
+    }
+    
+    
+
+    .section {
+        width: 95%; /* Ширина для мобільних */
     }
 
-    .left, .right {
-        
-        height: auto; /* Автоматична висота */
-        overflow-y: auto;
-        width: 80%;
-        
-        
-    }
-    .right{
-        padding: 0;
-    }
-    .mytitle {
-        font-size: 4vw; /* Збільшуємо розмір тексту */
-        text-align: right; /* Центруємо заголовок на вузьких екранах */
+    .skills-header {
+        font-size: 1.5rem; /* Менший заголовок для мобільних */
     }
 
-    .blok-foto {
-        
-        height: auto; /* Автоматична висота для збереження пропорцій */
+    .profile-name {
+        font-size: 1.2rem; /* Менший шрифт для імені профілю */
     }
 
-    .myfoto {
-        width: 100%;
+    .profile-title {
+        font-size: 0.9rem; /* Менший шрифт для заголовка профілю */
     }
 }
 
-@media (max-width: 700px) {
-    
-    .contact-box{
-        width: 400px;
-    }
-    .contacts{
-        width: 90%;
+/* Стилі для маленьких екранів */
+@media (max-width: 480px) {
+    .skills-header {
+        font-size: 1.2rem; /* Ще менший заголовок для малих екранів */
     }
 
-    .tech{
-        padding: 0;
-    }
-    .skills{
-        padding: 0%;
+    .skill-name {
+        font-size: 1.2rem; /* Менший шрифт для назви скілів */
     }
 
-    .left, .right {
-        padding: 0;
-        margin: 0;
-        height: auto; /* Автоматична висота */
-        overflow-y: auto;
-        width: 100%;
-        
-        
-    }
-}
-
-@media (max-width: 500px) {
-    .contact-box{
-        width: 350px;
-    }
-}
-@media (max-width: 400px) {
-    
-    .blok-foto{
-        border-radius: 40px;
-    }
-
-    .myfoto{
-        border-radius: 40px;
-    }
-    .mytitle{
-        font-size: 20px;
-    }
-    
-
-
-
-    .education {
-       
-        border-radius: 40px;
-        
-    }
-    
-    .education h1 {
-        
-        font-size: 55px;
-        
-    }
-    
-    .education h3{
-        
-        font-size: 35px;
-        
-    }
-    
-    .education h4 {
-        
-        font-size: 18px;
-        
-    }
-
-
-
-    
-    .lang-left, .lang-right {
-        border-radius: 40px;
-        
-        height: 150px;
-        
-    }
-    
-    .lang-top {
-        border-radius: 40px 40px 0 0;
-        
-    }
-    
-    .lang-bot {
-        border-radius: 0 0 40px 40px;
-        
-    }
-    
-
-
-
-
-    .skills {
-        position: relative;
-        width: 80%;
-        margin: 20px;
-        min-height: 500px;
-        background-color: #1E262D;
-        border: 2px solid #968E7A;
-        border-radius: 40px;
-        overflow: hidden;
-        
-        padding: 20px;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-        align-items: center;
-    }
-    
-    .skills h1 {
-        font-size: 40px;
-        margin-bottom: 5px;
-        margin-top: 0;
-        text-align: left;
-        color: #fff;
-        width: 100%;
-    }
-    
-    .skill-box {
-        flex: 1 1 calc(30% - 20px); /* Ширина блоку, яка займає приблизно 30% від контейнера */
-        min-width: 20px; /* Мінімальна ширина блоку */
-        margin: 5px; /* Відступи між блоками */
-        background-color: rgba(255, 255, 255, 0.1);
-        border-radius: 20px;
-        padding: 10px;
-        text-align: center;
-        font-size: 14px;
-        color: #fff;
-        position: relative;
-        border: 2px solid transparent; /* Прозора межа */
-        box-shadow: 0 0 15px; /* Тінь буде додана індивідуально для кожного блоку */
-        animation: randomMovement 15s infinite alternate ease-in-out;
-    }
-
-
-
-
-
-
-    .tech{
-        border-radius: 40px;
-        min-height: 210px;
-    }
-
-    
-    .tech h1{
-        text-align: left;
-        margin-left: 15px;
-        margin-bottom: 15;
-    }
-    
-      
-    .tech-box {
-        
-        width: 70px; /* Ширина боксу */
-        height: 70px; /* Висота боксу */
-        
-        
-        border-radius: 20px; /* Заокруглені кути */
-        
-    }
-    
-
-    .contacts{
-        margin-bottom: 35px;
-        border-radius: 40px;
-    }
-    .contacts h1{
-        margin-bottom: 0;
-    }
-    .contact-box{
-        width: 300px;
+    .skill-description {
+        font-size: 0.9rem; /* Менший шрифт для опису скілів */
     }
 }
